@@ -7,22 +7,21 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 
 public class Registration {
-    WebDriver driver =new EdgeDriver();
+    WebDriver driver =new ChromeDriver();
 
     @Given("User is on Webpage")
 
     public void user_is_on_webpage() {
-        String url="https://automationexercise.com/";
+                String url="https://automationexercise.com/";
         driver.get(url);
         driver.manage().window().maximize();
 
-
+        driver.findElement(By.xpath("//button[@aria-label='Consent']")).click();
         driver.findElement(By.xpath("//a[normalize-space()='Signup / Login']")).click();
     }
     @When("User Fills the details")
